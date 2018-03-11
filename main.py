@@ -13,8 +13,6 @@ def buttons(**kwargs):
 
 def yes_no(button_input=['Yes', 'No'],
            message='Would you like to continue?',
-           title='Proceed?',
-           **kwargs):
+           title='Proceed?'):
 
-    kwargs.update(button_input)
-    buttons(**kwargs)
+    return buttons(**locals())
