@@ -1,7 +1,6 @@
 # easywx #
 
-## *A library for easy function-based pop-up gui prompts based on the
-easygui API* ##
+## *A library for easy function-based pop-up gui prompts based on the easygui API* ##
 
 This library aims to replicate the API of easygui. Easygui is a great library,
 but looks dated and uses tkinter.
