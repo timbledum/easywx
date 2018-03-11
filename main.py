@@ -16,3 +16,7 @@ def yes_no(button_input=['Yes', 'No'],
            title='Proceed?'):
 
     return buttons(**locals())
+
+if __name__ == '__main__':
+    buttons()
+    yes_no()
