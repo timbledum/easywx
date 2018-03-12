@@ -18,5 +18,5 @@ def yes_no(button_input=['Yes', 'No'],
     return buttons(**locals())
 
 if __name__ == '__main__':
-    buttons()
-    yes_no()
+    print(buttons())
+    print(yes_no())
