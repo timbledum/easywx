@@ -6,6 +6,9 @@ class ButtonWindow(wx.Frame):
         super().__init__(None)
 
         self.SetTitle(settings.title)
+        self.result = None
+
+        # panel = wx.Panel(self)
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
