@@ -8,16 +8,16 @@ class ButtonWindow(wx.Frame):
         self.SetTitle(settings.title)
         self.result = None
 
-        # panel = wx.Panel(self)
+        panel = wx.Panel(self)
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        text_label = wx.StaticText(self, -1, label=settings.message)
+        text_label = wx.StaticText(panel, -1, label=settings.message)
         text_label.Wrap(settings.min_width)
         sizer.Add(text_label, **settings.sizer_settings)
 
         button_input = settings.button_input
-        self.buttons = [wx.Button(self, -1, text) for text in button_input]
+        self.buttons = [wx.Button(panel, -1, text) for text in button_input]
 
         for button in self.buttons:
             button.Bind(wx.EVT_BUTTON, self.button_press)
@@ -30,8 +30,9 @@ class ButtonWindow(wx.Frame):
         sizer.Add(button_sizer, **settings.sizer_settings)
 
         sizer.SetSizeHints(self)
-        self.SetSizer(sizer)
+        panel.SetSizerAndFit(sizer)
 
+        panel.Layout()
         self.Show(True)
 
     def button_press(self, event):
