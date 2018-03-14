@@ -15,6 +15,6 @@ class Settings(object):
                                       'flag': wx.ALL})
 
     # input defaults
-    button_input = attr.ib(default=['Yes', 'No', 'Maybe'])
-    message = attr.ib(default=msg)
+    choices = attr.ib(default=['Yes', 'No', 'Maybe'])
+    msg = attr.ib(default=msg)
     title = attr.ib(default='Party!')

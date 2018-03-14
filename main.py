@@ -3,7 +3,7 @@ import button_window
 from settings import Settings
 
 
-def buttons(**kwargs):
+def indexbox(**kwargs):
     settings = Settings(**kwargs)
     app = wx.App()
     frame = button_window.ButtonWindow(settings)
@@ -11,12 +11,21 @@ def buttons(**kwargs):
     return frame.result
 
 
-def yes_no(button_input=['Yes', 'No'],
-           message='Would you like to continue?',
-           title='Proceed?'):
+def ynbox(choices=['Yes', 'No'],
+          msg='Shall I continue?',
+          title=''):
 
-    return buttons(**locals())
+    return indexbox(**locals())
+
+
+def ccbox(choices=['C[o]ntinue', 'C[a]ncel'],
+          msg='Shall I continue?',
+          title=''):
+
+    return indexbox(**locals())
+
 
 if __name__ == '__main__':
-    print(buttons())
-    print(yes_no())
+    print(indexbox())
+    print(ynbox())
+    print(ccbox())

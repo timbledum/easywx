@@ -12,12 +12,12 @@ class ButtonWindow(wx.Frame):
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        text_label = wx.StaticText(panel, -1, label=settings.message)
+        text_label = wx.StaticText(panel, -1, label=settings.msg)
         text_label.Wrap(settings.min_width)
         sizer.Add(text_label, **settings.sizer_settings)
 
-        button_input = settings.button_input
-        self.buttons = [wx.Button(panel, -1, text) for text in button_input]
+        choices = settings.choices
+        self.buttons = [wx.Button(panel, -1, text) for text in choices]
 
         for button in self.buttons:
             button.Bind(wx.EVT_BUTTON, self.button_press)
