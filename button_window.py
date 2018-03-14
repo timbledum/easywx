@@ -16,6 +16,11 @@ class ButtonWindow(wx.Frame):
         text_label.Wrap(settings.min_width)
         sizer.Add(text_label, **settings.sizer_settings)
 
+        png = wx.Image(settings.images, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+        image = wx.StaticBitmap(panel, -1, png, (10, 5),
+                                (png.GetWidth(), png.GetHeight()))
+        sizer.Add(image, flag=(wx.ALIGN_CENTER | wx.ALL))
+
         choices = settings.choices
         self.buttons = [wx.Button(panel, -1, text) for text in choices]
 

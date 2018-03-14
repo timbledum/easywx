@@ -18,3 +18,4 @@ class Settings(object):
     choices = attr.ib(default=['Yes', 'No', 'Maybe'])
     msg = attr.ib(default=msg)
     title = attr.ib(default='Party!')
+    images = attr.ib(default='generic_logo.png')
