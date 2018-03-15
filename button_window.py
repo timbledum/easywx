@@ -18,7 +18,7 @@ class ButtonWindow(wx.Frame):
 
         if settings.images:
             images = self.make_images_iterable(settings.images)
-            print(images)
+
             for image in images:
                 png = wx.Image(image, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
                 image = wx.StaticBitmap(panel, -1, png, (10, 5),
@@ -55,7 +55,6 @@ class ButtonWindow(wx.Frame):
         try:
             _ = iter(images)
         except TypeError:
-            print('this should trigger')
             return [images]
         else:
             return images
