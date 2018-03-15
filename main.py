@@ -3,6 +3,14 @@ import button_window
 from settings import Settings
 
 
+def buttonbox(msg='',
+              title='',
+              choices=('Button[1]', 'Button[2]', 'Button[3]'),
+              images=None):
+
+    return choices[indexbox(**locals())]
+
+
 def indexbox(**kwargs):
     settings = Settings(**kwargs)
     app = wx.App()
@@ -26,6 +34,7 @@ def ccbox(choices=['C[o]ntinue', 'C[a]ncel'],
 
 
 if __name__ == '__main__':
+    print(buttonbox())
     print(indexbox())
     print(ynbox())
     print(ccbox())
