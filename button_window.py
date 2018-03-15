@@ -16,10 +16,15 @@ class ButtonWindow(wx.Frame):
         text_label.Wrap(settings.min_width)
         sizer.Add(text_label, **settings.sizer_settings)
 
-        png = wx.Image(settings.images, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-        image = wx.StaticBitmap(panel, -1, png, (10, 5),
-                                (png.GetWidth(), png.GetHeight()))
-        sizer.Add(image, flag=(wx.ALIGN_CENTER | wx.ALL))
+        if settings.images:
+            images = self.make_images_iterable(settings.images)
+            print(images)
+            for image in images:
+                png = wx.Image(image, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+                image = wx.StaticBitmap(panel, -1, png, (10, 5),
+                                        (png.GetWidth(), png.GetHeight()))
+                sizer.Add(image, flag=(wx.ALIGN_CENTER | wx.ALL),
+                          border=settings.border)
 
         choices = settings.choices
         self.buttons = [wx.Button(panel, -1, text) for text in choices]
@@ -43,3 +48,14 @@ class ButtonWindow(wx.Frame):
     def button_press(self, event):
         self.result = self.buttons.index(event.EventObject)
         self.Close()
+
+    def make_images_iterable(self, images):
+        if isinstance(images, str):
+            return [images]
+        try:
+            _ = iter(images)
+        except TypeError:
+            print('this should trigger')
+            return [images]
+        else:
+            return images
