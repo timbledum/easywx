@@ -1,8 +1,8 @@
 import types
 
 import wx
-import button_window
-from settings import Settings
+from .button_window import ButtonWindow
+from .settings import Settings
 
 
 def buttonbox(msg='',
@@ -16,7 +16,7 @@ def buttonbox(msg='',
 def indexbox(**kwargs):
     settings = Settings(**kwargs)
     app = wx.App()
-    frame = button_window.ButtonWindow(settings)
+    frame = ButtonWindow(settings)
     app.MainLoop()
     return frame.result
 

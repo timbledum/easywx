@@ -1,7 +1,5 @@
-import wx
-from button_boxes import *
-
+import easywx
 
 if __name__ == '__main__':
-    for func in button_boxes:
+    for func in easywx.button_boxes:
         func()
