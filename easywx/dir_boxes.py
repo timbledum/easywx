@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from pathlib import Path
 import wx
 
 
@@ -30,13 +31,19 @@ def fileopenbox(msg='',
     # wx.FD_MULTIPLE
     pass
 
-def filesavebox(msg=None, title=None, default='', filetypes=None):
-    # with init_frame() as frame:
-    #     dialog = wx.FileDialog(frame, message=msg, defaultPath=default)
-    # with wx.FileDialog(self, "Save XYZ file", wildcard="XYZ files (*.xyz)|*.xyz",
-    #                    style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as fileDialog:
-    #
-    pass
+
+def filesavebox(msg='', title=None, default='', filetypes=''):
+    default_path = Path(default)
+
+    with init_frame() as frame:
+        dialog = wx.FileDialog(frame, message=msg,
+                               defaultDir=str(default_path.parent),
+                               defaultFile=str(default_path.name),
+                               wildcard='',
+                               style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)
+    dialog.ShowModal()
+    path = dialog.GetPath()
+    return path
 
 
 if __name__ == '__main__':
