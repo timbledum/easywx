@@ -1,2 +1,6 @@
+""" Guis made easy with the native look of wxpython"""
+
+__version__ = '0.1'
+
 from .button_boxes import *
 from .dir_boxes import *

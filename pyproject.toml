@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "easywx"
+author = "Marcus Croucher"
+author-email = "timbledum@gmail.com"
+home-page = "https://github.com/timbledum/easywx"
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+
