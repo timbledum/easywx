@@ -13,17 +13,24 @@ def diropenbox(msg='', title='', default=''):
 
 def fileopenbox(msg='',
                 title=None,
-                default='*',
+                default='',
                 filetypes=None,
                 multiple=False):
-    # with init_frame() as frame:
-    #     dialog = wx.FileDialog(frame, message=msg, defaultPath=default)
-    # dialog.ShowModal()
-    # path = dialog.GetPath()
-    # return path
-    # wx.FD_MULTIPLE
-    pass
 
+    default_path = Path(default)
+
+    style_base = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST
+    style = style_base | wx.FD_MULTIPLE if multiple else style_base
+
+    app = wx.App()
+    frame = wx.Frame()
+    dialog = wx.FileDialog(frame, message=msg, 
+                           defaultDir=str(default_path.parent),
+                           defaultFile=str(default_path.name),
+                           style=style)
+    dialog.ShowModal()
+    path = dialog.GetPath()
+    return path
 
 def filesavebox(msg='', title=None, default='', filetypes=''):
     default_path = Path(default)
