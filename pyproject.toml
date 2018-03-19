@@ -18,5 +18,6 @@ requires = ["wxpython",
 dev-requires = ["flit",
                 "pyinstaller"]
 
+description-file = "README.md"
 requires-python = ">=3.3"
 keywords = "easygui gui wxpython function"
