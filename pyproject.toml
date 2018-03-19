@@ -16,7 +16,9 @@ requires = ["wxpython",
             "attrs"]
 
 dev-requires = ["flit",
-                "pyinstaller"]
+                "pyinstaller",
+                "pandoc", # required for markdown readme for pypi
+                "pypandoc"] # required for markdown readme for pypi
 
 description-file = "README.md"
 requires-python = ">=3.3"
