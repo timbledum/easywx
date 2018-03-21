@@ -2,22 +2,27 @@ import wx
 
 
 class ButtonWindow(wx.Frame):
-    def __init__(self, settings):
+    def __init__(self,
+                 msg=None,
+                 title=None,
+                 choices=['Yes', 'No', 'Maybe'],
+                 images=None,
+                 settings=None,):
         super().__init__(None)
 
-        self.SetTitle(settings.title)
+        self.SetTitle(title)
         self.result = None
 
         panel = wx.Panel(self)
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        text_label = wx.StaticText(panel, -1, label=settings.msg)
+        text_label = wx.StaticText(panel, -1, label=msg)
         text_label.Wrap(settings.min_width)
         sizer.Add(text_label, **settings.sizer_settings)
 
-        if settings.images:
-            images = self.make_images_iterable(settings.images)
+        if images:
+            images = self.make_images_iterable(images)
 
             for image in images:
                 png = wx.Image(image, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
@@ -26,7 +31,6 @@ class ButtonWindow(wx.Frame):
                 sizer.Add(image, flag=(wx.ALIGN_CENTER | wx.ALL),
                           border=settings.border)
 
-        choices = settings.choices
         self.buttons = [wx.Button(panel, -1, text) for text in choices]
 
         for button in self.buttons:

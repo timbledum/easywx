@@ -5,6 +5,20 @@ from .button_window import ButtonWindow
 from .settings import Settings
 
 
+def indexbox(msg='Shall I continue?',
+             title='',
+             choices=('Yes', 'No'),
+             images=None):
+
+    settings = Settings()
+
+    app = wx.App()
+    frame = ButtonWindow(msg=msg, title=title, choices=choices, images=images,
+                         settings=settings)
+    app.MainLoop()
+    return frame.result
+
+
 def buttonbox(msg='',
               title='',
               choices=('Button[1]', 'Button[2]', 'Button[3]'),
@@ -13,27 +27,23 @@ def buttonbox(msg='',
     return choices[indexbox(**locals())]
 
 
-def indexbox(**kwargs):
-    settings = Settings(**kwargs)
-    app = wx.App()
-    frame = ButtonWindow(settings)
-    app.MainLoop()
-    return frame.result
-
-
-def ynbox(choices=['Yes', 'No'],
-          msg='Shall I continue?',
-          title=''):
+def ynbox(msg='Shall I continue?',
+          title='',
+          choices=['Yes', 'No']):
 
     return indexbox(**locals())
 
 
-def ccbox(choices=['C[o]ntinue', 'C[a]ncel'],
-          msg='Shall I continue?',
-          title=''):
+def ccbox(msg='Shall I continue?',
+          title='',
+          choices=['C[o]ntinue', 'C[a]ncel']):
 
     return indexbox(**locals())
 
 
-button_boxes = [func for func in globals().values() if
-                isinstance(func, types.FunctionType)]
+if __name__ == "__main__":
+
+    button_boxes = [func for func in globals().values() if
+                    isinstance(func, types.FunctionType)]
+    for func in button_boxes:
+        func()
