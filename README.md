@@ -11,7 +11,7 @@ entry by:
    generous spacing
 3. Allowing gui prompts to be called via easy to use functions.
    Typically gui frameworks require you to construct a class system then call
-   a loop – this cuts through all of that tedious set-up work
+   a loop – this library cuts through all of that tedious set-up work
 
 
 ### Example usage
@@ -26,7 +26,8 @@ entry by:
 ### History ###
 
 This library aims to replicate the API of easygui. [Easygui][1] is a great library,
-but looks dated and uses tkinter.
+allowing easy gui applications to be built quickly. However, it
+does use tkinter which leads to a dated, mis-matching look.
 
 Wxpython has emerged as one of the leading python gui frameworks with the
 phoenix project bring it up to python 3. Wxpython also uses native widgets
