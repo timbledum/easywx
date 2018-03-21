@@ -41,6 +41,16 @@ def ccbox(msg='Shall I continue?',
     return indexbox(**locals())
 
 
+def boolbox(msg='Shall I continue?',
+            title='',
+            choices=('[Y]es', '[N]o'),
+            images=None):
+
+    return indexbox(**locals()) == 0  # should also return True if cancelled
+
+
+
+
 if __name__ == "__main__":
 
     button_boxes = [func for func in globals().values() if
