@@ -49,7 +49,13 @@ def boolbox(msg='Shall I continue?',
     return indexbox(**locals()) == 0  # should also return True if cancelled
 
 
-
+def msgbox(msg='(Your message goes here)',
+           title=' ',
+           ok_button='OK',
+           image=None,
+           root=None):
+    
+    return None
 
 if __name__ == "__main__":
 
