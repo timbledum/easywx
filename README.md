@@ -29,8 +29,9 @@ This library aims to replicate the API of easygui. [Easygui][1] is a great libra
 allowing easy gui applications to be built quickly. However, it
 does use tkinter which leads to a dated, mis-matching look.
 
-Wxpython has emerged as one of the leading python gui frameworks with the
+[Wxpython][2] has emerged as one of the leading python gui frameworks with the
 phoenix project bring it up to python 3. Wxpython also uses native widgets
 which provides a smooth polished feel.
 
 [1]: http://easygui.readthedocs.io
+[2]: https://wxpython.org
