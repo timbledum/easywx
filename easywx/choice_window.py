@@ -2,13 +2,16 @@ import wx
 
 
 class ChoiceWindow(wx.Frame):
-    def __init__(self,
-                 msg=None,
-                 title=None,
-                 choices=['Yes', 'No', 'Maybe'],
-                 preselect=0,
-                 multiple=False,
-                 settings=None,):
+
+    def __init__(
+        self,
+        msg=None,
+        title=None,
+        choices=["Yes", "No", "Maybe"],
+        preselect=0,
+        multiple=False,
+        settings=None,
+    ):
         super().__init__(None)
 
         self.SetTitle(title)
@@ -24,14 +27,12 @@ class ChoiceWindow(wx.Frame):
         sizer.Add(text_label, **settings.sizer_settings)
 
         wx_multi = wx.LB_EXTENDED if multiple else wx.LB_SINGLE
-        self.list_box = wx.ListBox(panel, -1, choices=self.choices,
-                                   style=wx_multi)
+        self.list_box = wx.ListBox(panel, -1, choices=self.choices, style=wx_multi)
 
         self.list_box.SetSelection(preselect)
         sizer.Add(self.list_box, **settings.sizer_settings)
 
-        self.buttons = [wx.Button(panel, -1, text) for text in
-                        ['Cancel', 'OK']]
+        self.buttons = [wx.Button(panel, -1, text) for text in ["Cancel", "OK"]]
 
         for button in self.buttons:
             button.Bind(wx.EVT_BUTTON, self.button_press)

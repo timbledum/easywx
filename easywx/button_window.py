@@ -2,12 +2,15 @@ import wx
 
 
 class ButtonWindow(wx.Frame):
-    def __init__(self,
-                 msg=None,
-                 title=None,
-                 choices=['Yes', 'No', 'Maybe'],
-                 images=None,
-                 settings=None,):
+
+    def __init__(
+        self,
+        msg=None,
+        title=None,
+        choices=["Yes", "No", "Maybe"],
+        images=None,
+        settings=None,
+    ):
         super().__init__(None)
 
         self.SetTitle(title)
@@ -26,10 +29,12 @@ class ButtonWindow(wx.Frame):
 
             for image in images:
                 png = wx.Image(image, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-                image = wx.StaticBitmap(panel, -1, png, (10, 5),
-                                        (png.GetWidth(), png.GetHeight()))
-                sizer.Add(image, flag=(wx.ALIGN_CENTER | wx.ALL),
-                          border=settings.border)
+                image = wx.StaticBitmap(
+                    panel, -1, png, (10, 5), (png.GetWidth(), png.GetHeight())
+                )
+                sizer.Add(
+                    image, flag=(wx.ALIGN_CENTER | wx.ALL), border=settings.border
+                )
 
         self.buttons = [wx.Button(panel, -1, text) for text in choices]
 
@@ -56,9 +61,11 @@ class ButtonWindow(wx.Frame):
     def make_images_iterable(self, images):
         if isinstance(images, str):
             return [images]
+
         try:
             _ = iter(images)
         except TypeError:
             return [images]
+
         else:
             return images
