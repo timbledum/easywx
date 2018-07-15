@@ -5,6 +5,8 @@ from .button_window import ButtonWindow
 from .settings import Settings
 
 
+
+
 def indexbox(msg="Shall I continue?", title="", choices=("Yes", "No"), images=None):
 
     settings = Settings()
@@ -46,6 +48,8 @@ def msgbox(
     indexbox(msg=msg, title=title, choices=(ok_button,), images=image)
     return ok_button
 
+
+FUNCS = [indexbox, buttonbox, ynbox, ccbox, boolbox, msgbox]
 
 if __name__ == "__main__":
 
